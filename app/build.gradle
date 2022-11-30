@@ -87,6 +87,10 @@ dependencies {
     implementation "androidx.hilt:hilt-navigation-compose:$viewModelHiltVersion"
     kapt "androidx.hilt:hilt-compiler:$viewModelHiltVersion"
 
+    // Images
+    implementation "io.coil-kt:coil:2.2.2"
+    implementation "io.coil-kt:coil-compose:2.2.2"
+
     // OkHttp3
     def okHttp_version = '5.0.0-alpha.10'
     implementation "com.squareup.okhttp3:okhttp:$okHttp_version"
