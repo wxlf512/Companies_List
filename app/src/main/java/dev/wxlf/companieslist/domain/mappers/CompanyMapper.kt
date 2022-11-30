@@ -1,10 +1,10 @@
 package dev.wxlf.companieslist.domain.mappers
 
 import dev.wxlf.companieslist.data.entities.CompanyEntity
-import dev.wxlf.companieslist.presentation.models.DisplayableCompanyItem
+import dev.wxlf.companieslist.presentation.models.DisplayableCompanyItemModel
 
-fun List<CompanyEntity>.mapToDisplayable(): List<DisplayableCompanyItem> =
+fun List<CompanyEntity>.mapToDisplayable(): List<DisplayableCompanyItemModel> =
     this.map { it.mapToDisplayable() }
 
-fun CompanyEntity.mapToDisplayable(): DisplayableCompanyItem =
-    DisplayableCompanyItem(id = id, name = name, img = img)
+fun CompanyEntity.mapToDisplayable(): DisplayableCompanyItemModel =
+    DisplayableCompanyItemModel(id = id, name = name, img = img)
