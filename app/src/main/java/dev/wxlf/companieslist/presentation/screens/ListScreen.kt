@@ -18,7 +18,7 @@ fun ListScreen(viewModel: ListViewModel) {
     val itemsList = List(15) {
         DisplayableCompanyItem("0", "By Park Inn.Ижевск", "https://lifehack.studio/test_task/test_images/1.jpg")
     }
-
+    viewModel.test()
     LazyColumn() {
         itemsList.forEach {
             item {
