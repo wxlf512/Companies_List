@@ -1,9 +1,11 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.google.dagger.hilt.android' version '2.44.2' apply false
 }
 
 apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     namespace 'dev.wxlf.companieslist'
@@ -75,4 +77,23 @@ dependencies {
     def accompanist_version = "0.27.0"
     implementation "com.google.accompanist:accompanist-systemuicontroller:$accompanist_version"
     implementation "com.google.accompanist:accompanist-swiperefresh:$accompanist_version"
+
+    // Hilt
+    def hilt_version = "2.44.2"
+    implementation "com.google.dagger:hilt-core:$hilt_version"
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+    def viewModelHiltVersion = "1.0.0"
+    implementation "androidx.hilt:hilt-navigation-compose:$viewModelHiltVersion"
+    kapt "androidx.hilt:hilt-compiler:$viewModelHiltVersion"
+
+    // OkHttp3
+    def okHttp_version = '5.0.0-alpha.10'
+    implementation "com.squareup.okhttp3:okhttp:$okHttp_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okHttp_version"
+
+    // Retrofit2
+    def retrofit_version = '2.9.0'
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
 }

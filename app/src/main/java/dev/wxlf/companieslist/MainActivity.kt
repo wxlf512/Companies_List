@@ -6,23 +6,26 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
-import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.view.WindowCompat
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import dev.wxlf.companieslist.ui.theme.CompaniesListTheme
+import dagger.hilt.android.AndroidEntryPoint
+import dev.wxlf.companieslist.presentation.screens.ListScreen
+import dev.wxlf.companieslist.presentation.ui.theme.CompaniesListTheme
+import dev.wxlf.companieslist.presentation.viewmodels.ListViewModel
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,22 +73,9 @@ fun MainScreen() {
             modifier = Modifier.padding(paddingValues = it)
         ) {
             composable("companieslist://list") {
-                TestScreen()
+                val listViewModel = hiltViewModel<ListViewModel>()
+                ListScreen(listViewModel)
             }
-        }
-    }
-}
-
-@Composable
-fun TestScreen() {
-    Scaffold(modifier = Modifier.fillMaxSize()) {
-        Box(Modifier.fillMaxSize(),
-            contentAlignment = Center
-        ) {
-            Text(
-                text = "Hello, Android",
-                modifier = Modifier.padding(it)
-            )
         }
     }
 }

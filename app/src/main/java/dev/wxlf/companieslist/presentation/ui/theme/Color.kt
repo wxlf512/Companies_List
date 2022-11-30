@@ -1,4 +1,4 @@
-package dev.wxlf.companieslist.ui.theme
+package dev.wxlf.companieslist.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
